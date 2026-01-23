@@ -38,7 +38,7 @@ export const pricingData: IPricing[] = [
             "API Access",
             "Team Collaboration",
             "Custom Branding",
-            "Dedicated Account Manager"
+            "Dedicated Account Manager   "
         ],
         mostPopular: false
     }
