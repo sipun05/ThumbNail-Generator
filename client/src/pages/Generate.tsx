@@ -4,6 +4,8 @@ import { useParams } from "react-router-dom"
 import SoftDrop from "../components/SoftDrop";
 import { colorSchemes, type AspectRatio, type IThumbnail, type ThumbnailStyle } from "../assests/assets/assets";
 import AspectRatioSelector from "../components/AspectRatioSelector";
+import StyleSelector from "../components/StyleSelector";
+import ColorSchemeSelector from "../components/ColorSchemeSelector";
 
 
 function Generate() {
@@ -19,6 +21,7 @@ function Generate() {
      
 
     const [loading,setLoading] = useState(false)
+  const newLocal = "text-zinc-400 text-xs";
   return (
     <>
     <SoftDrop />
@@ -46,11 +49,13 @@ function Generate() {
            <AspectRatioSelector value={aspectRatio} onChange={setAspectRatio} />
 
            {/* StyleSelector */}
+           <StyleSelector value ={style} onChange={setStyle} isOpen={styleDropdownopen} setIsOpen={setStyleDropdownOpen}/>
            {/* ColorSchemeSlector */}
+           <ColorSchemeSelector value={colorSchemeId} onChange={setColorSchemeId}/>
            {/* Details */}
            <div className="space-y-2">
             <label className="block text-sm font-medium">
-                Additional Prompts <span className="text-zinc-400 text-xs">(optional)</span>
+                Additional Prompts <span className={newLocal}>(optional)</span>
             </label>
             <textarea value={additionalDetails} onChange={(e)=> setAdditionalDetails(e.target.value)} rows={3} placeholder="Add any specific elements,mood ,or style preferences ..." className="w-full px-4 py-3 rounded-lg border border-white/10 bg-white/6 text-zinc-100 placeholder:text-zonc-400 focus:outline-none focus:ring-2 focus:rinf-pink-500 resize-none"/>
            </div>
